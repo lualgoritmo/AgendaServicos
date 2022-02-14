@@ -8,7 +8,7 @@
     $servicos = new Servicos(null,"10/10/2021",
     "08:00","Feito","200,00");
 
-    $usuario = new Usuarios("Clodovil Martins","teste@teste.com",
+    $usuario = new Usuario("Clodovil Martins","teste@teste.com",
     "01/10/1983", $perfil,null,"123456789","Boraz","Frutas",
     "15", "Serra", "ES",null,
     "654321","123456789111",null,"Celular",

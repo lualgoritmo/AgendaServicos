@@ -13,9 +13,9 @@
         }
     }
 
-    $cep.addEventListener('blur', e =>
+    $cep.addEventListener('blur', event =>
     {
-        e.preventDefault();
+        event.preventDefault();
         
         const getCep = async () =>
         {

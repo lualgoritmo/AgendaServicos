@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    /*session_start();
     require_once "model/conexao.php";
     require_once "model/usuario.class.php";
     require_once "model/usuarioDAO.class.php";
@@ -80,4 +80,4 @@
     echo"------------------------------------"."<br/";
     echo" Objeto Perfil ".$usuario->getPerfil()->getId_perfil()."<br/>";
     echo" Objeto Perfil ".$usuario->getPerfil()->getDescricao_perfil()."<br/>";*/
-    -->
+    

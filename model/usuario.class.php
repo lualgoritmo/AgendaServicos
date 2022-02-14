@@ -1,27 +1,23 @@
 <?php
 
-    require_once "endereco.class.php";
-    require_once "telefone.class.php";
+    require_once "address.class.php";
+    require_once "phone.class.php";
 
-    class Usuario
+    class Employee
     {
-        private $id_usuario;
-        private $nome;
-        private $email;
-        private $senha;
-        private $data_cadastro;
+        private $idEmployee;
+        private $nameEmployee;
+        private $emailEmployee;
+        private $password;
+        private $registrationDate;
         private $perfil;
-        private $enderecos;
-        private $rg;
-        private $cpf;
-        private $servicos;
-        private $telefones;
+        private $address;
+        private $services;
+        private $phones;
 
-        public function __construct($id_usuario = null,$nome = null, $email = null, $senha = null,
-            $data_cadastro = null, Perfil $perfil,$id_endereco, $cep, $rua,
-            $bairro, $numero_residencia,$cidade, $estado,
-            $rg,$cpf,$id_telefone,$tipo_telefone,
-            $cliente_telefone, $atendente_telefone)
+        public function __construct($idEmployee = null,$nameEmployee = null, $emailEmployee = null, $password = null,
+            $registrationDate = null, Perfil $perfil,$idAddress, $cep, $publicPlace,$district, $numberResidence, $city, $uf, 
+            $id_telefone,$tipo_telefone, $cliente_telefone, $atendente_telefone)
         {
             $this->id_usuario = $id_usuario;
             $this-> nome = $nome;
@@ -29,40 +25,13 @@
             $this-> senha = $senha;
             $this-> data_cadastro = $data_cadastro;
             $this-> perfil = $perfil;
-            $this-> enderecos[] = new Endereco($id_endereco, $cep, $rua,
-            $bairro, $numero_residencia,
-            $cidade, $estado);
+            $this-> address[] = new Endereco($idAddress, $cep, $publicPlace,$district, $numberResidence, $city, $uf);
             $this->servicos = array();
-            //$this->documentos = new Documentos($id_documento,$rg,$cpf);
-            $this->telefones[] = new Telefones($id_telefone,$tipo_telefone,
+            $this->phone[] = new Phones($id_telefone,$tipo_telefone,
             $cliente_telefone, $atendente_telefone);
         }
 
-        public function getId_usuario(){return $this->id_usuario;}
-
-           
-        public function getNome(){ return $this->nome;}
-
-        public function setNome($nome)
-        {
-                $this->nome = $nome;
-        }
-
-        public function getEmail(){return $this->email;}
-
-        public function setEmail($email)
-        {
-                $this->email = $email;
-
-        }
-
-        public function getData_cadastro(){return $this->data_cadastro;}
-
-        public function setData_cadastro($data_cadastro)
-        {
-                $this->data_cadastro = $data_cadastro;
-        }
-        
+     
         //RELAÇÃO DE ASSOCIAÇÃO
         public function getPerfil(){return $this->perfil;}
 
@@ -75,7 +44,7 @@
         public function addEndereco($id_endereco, $cep, $rua,
             $bairro, $numero_residencia,$cidade, $estado)
         {
-            $this-> enderecos[] = new Endereco($id_endereco, $cep, $rua,
+            $this-> enderecos[] = new Address($id_endereco, $cep, $rua,
             $bairro, $numero_residencia,
             $cidade, $estado);
         }
@@ -113,29 +82,6 @@
                 $this->telefones = $telefones;
         }
 
-        public function getSenha()
-        {
-                return $this->senha;
-        }
-
-        
-        public function setSenha($senha)
-        {
-                $this->senha = $senha;
-        }
-
-        public function getRg(){return $this->rg;}
-
-        public function setRg($rg)
-        {
-                $this->rg = $rg;
-        }
-
-        public function getCpf(){return $this->cpf;}
-
-        public function setCpf($cpf)
-        {
-                $this->cpf = $cpf;
-        }
+       
     }
 ?>

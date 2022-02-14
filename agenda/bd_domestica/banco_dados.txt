@@ -1,0 +1,1626 @@
+CREATE DATABASE bd_domestica;
+USE bd_domestica;
+
+
+CREATE TABLE perfil(
+	id_perfil INT AUTO_INCREMENT,
+	descricao_perfil VARCHAR(100),
+	PRIMARY KEY(id_perfil)
+)ENGINE INNODB;
+
+CREATE TABLE usuario(
+	id_usuario INT AUTO_INCREMENT,
+	id_perfil INT,
+	email VARCHAR(100),
+	senha VARCHAR(100),
+	data_matricula DATE,
+	FOREIGN KEY(id_perfil)
+	REFERENCES perfil(id_perfil),
+	PRIMARY KEY(id_usuario)
+)ENGINE INNODB;
+
+CREATE TABLE cliente(
+	id_clienteINT AUTO_INCREMENT,
+	id_usuario INT,
+	email VARCHAR(100),
+	nome VARCHAR(100),
+	rg VARCHAR(15),
+	cpf VARCHAR(15),
+	data_matricula DATE,
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_cliente)
+)ENGINE INNODB;
+
+CREATE TABLE endereco(
+	id_endereco INT AUTO_INCREMENT,
+	id_usuario INT,
+	id_cliente INT,
+	cep VARCHAR(10)NOT NULL,
+	rua VARCHAR(100),
+	bairro VARCHAR(50),
+	numero_residencia VARCHAR(10),
+	cidade VARCHAR(50),
+	estado CHAR(2),
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(id_cliente)
+	REFERENCES cliente(id_cliente),
+	PRIMARY KEY(id_endereco)
+	
+)ENGINE INNODB;
+
+CREATE TABLE servicos(
+	id_servico INT AUTO_INCREMENT,
+	data_servico DATE NOT NULL,
+	horario_atendimento DATE,
+	servico_feito CHAR(10),
+	preco_servico VARCHAR(50),
+	PRIMARY KEY(id_servico)
+	
+)ENGINE INNODB;
+
+
+CREATE TABLE servicos_clientes(
+	id_servico_cliente INT AUTO_INCREMENT,
+	id_servico INT,
+	id_cliente INT,
+	atendente INT,
+	id_endereco INT,
+	data_servico_feito DATE,
+	servico_feito CHAR(10),
+	FOREIGN KEY(id_servico)
+	REFERENCES servicos(id_servico),
+	FOREIGN KEY (atendente)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(id_cliente)
+	REFERENCES cliente(id_cliente),
+	FOREIGN KEY(id_endereco)
+	REFERENCES endereco(id_endereco),
+	PRIMARY KEY(id_servico_cliente)
+)ENGINE INNODB;
+
+CREATE TABLE telefone(
+	id_telefone INT AUTO_INCREMENT,
+	id_cliente INT,
+	id_usuario INT,
+	tipo_telefone VARCHAR(20),
+	numero_telefone VARCHAR(100),
+	FOREIGN KEY(id_cliente)
+	REFERENCES cliente(id_cliente),
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_telefone)
+)ENGINE INNODB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE bd_domestica;
+USE bd_domestica;
+
+DROP DATABASE bd_domestica;
+
+CREATE TABLE perfil(
+	id_perfil INT AUTO_INCREMENT,
+	descricao_perfil VARCHAR(100),
+	PRIMARY KEY(id_perfil)
+)ENGINE INNODB;
+
+CREATE TABLE usuario(
+	id_usuario INT AUTO_INCREMENT,
+	id_perfil INT,
+	data_cadastro DATE NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100),
+	FOREIGN KEY(id_perfil)
+	REFERENCES perfil(id_perfil),
+	PRIMARY KEY(id_usuario)
+)ENGINE INNODB;
+
+CREATE TABLE endereco(
+	id_endereco INT AUTO_INCREMENT,
+	id_usuario INT,
+	cep VARCHAR(10)NOT NULL,
+	rua VARCHAR(100),
+	bairro VARCHAR(50),
+	numero_residencia VARCHAR(10),
+	cidade VARCHAR(50),
+	estado CHAR(2),
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_endereco)
+	
+)ENGINE INNODB;
+
+CREATE TABLE servicos(
+	id_servico INT AUTO_INCREMENT,
+	data_servico DATE NOT NULL,
+	horario_atendimento DATE,
+	servico_feito CHAR(10),
+	preco_servico VARCHAR(50),
+	PRIMARY KEY(id_servico)
+	
+)ENGINE INNODB;
+
+DROP TABLE servicos_clientes;
+
+CREATE TABLE servicos_clientes(
+	id_servico_cliente INT AUTO_INCREMENT,
+	id_servico INT,
+	atendente INT,
+	cliente INT,
+	servico_feito CHAR(10),
+	FOREIGN KEY(id_servico)
+	REFERENCES servicos(id_servico),
+	FOREIGN KEY (atendente)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(cliente)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_servico_cliente)
+)ENGINE INNODB;
+
+CREATE TABLE telefone(
+	id_telefone INT AUTO_INCREMENT,
+	cliente_telefone INT,
+	atendente_telefone INT,
+	tipo VARCHAR(100),
+	numero_telefone VARCHAR(100),
+	FOREIGN KEY(cliente_telefone)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_telefone)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_telefone)
+)ENGINE INNODB;
+
+CREATE TABLE documentos(
+	id_ducumento INT AUTO_INCREMENT,
+	cliente_documento INT,
+	atendente_documento INT,
+	rg VARCHAR(20),
+	cpf VARCHAR(15),
+	FOREIGN KEY(cliente_documento)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_documento)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_ducumento)
+)ENGINE INNODB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE bd_domestica;
+USE bd_domestica;
+
+DROP DATABASE bd_domestica;
+
+CREATE TABLE perfil(
+	id_perfil INT AUTO_INCREMENT,
+	descricao_perfil VARCHAR(100),
+	PRIMARY KEY(id_perfil)
+)ENGINE INNODB;
+
+CREATE TABLE usuario(
+	id_usuario INT AUTO_INCREMENT,
+	id_perfil INT,
+	data_cadastro DATE NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100),
+	FOREIGN KEY(id_perfil)
+	REFERENCES perfil(id_perfil),
+	PRIMARY KEY(id_usuario)
+)ENGINE INNODB;
+
+CREATE TABLE endereco(
+	id_endereco INT AUTO_INCREMENT,
+	id_usuario INT,
+	cep VARCHAR(10)NOT NULL,
+	rua VARCHAR(100),
+	bairro VARCHAR(50),
+	numero_residencia VARCHAR(10),
+	cidade VARCHAR(50),
+	estado CHAR(2),
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_endereco)
+	
+)ENGINE INNODB;
+
+CREATE TABLE servicos(
+	id_servico INT AUTO_INCREMENT,
+	data_servico DATE NOT NULL,
+	horario_atendimento DATE,
+	servico_feito CHAR(10),
+	preco_servico VARCHAR(50),
+	PRIMARY KEY(id_servico)
+	
+)ENGINE INNODB;
+
+DROP TABLE servicos_clientes;
+
+CREATE TABLE servicos_clientes(
+	id_servico_cliente INT AUTO_INCREMENT,
+	id_servico INT,
+	atendente INT,
+	cliente INT,
+	servico_feito CHAR(10),
+	FOREIGN KEY(id_servico)
+	REFERENCES servicos(id_servico),
+	FOREIGN KEY (atendente)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(cliente)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_servico_cliente)
+)ENGINE INNODB;
+
+CREATE TABLE telefone(
+	id_telefone INT AUTO_INCREMENT,
+	cliente_telefone INT,
+	atendente_telefone INT,
+	tipo VARCHAR(100),
+	numero_telefone VARCHAR(100),
+	FOREIGN KEY(cliente_telefone)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_telefone)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_telefone)
+)ENGINE INNODB;
+
+CREATE TABLE documentos(
+	id_ducumento INT AUTO_INCREMENT,
+	cliente_documento INT,
+	atendente_documento INT,
+	rg VARCHAR(20),
+	cpf VARCHAR(15),
+	FOREIGN KEY(cliente_documento)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_documento)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_ducumento)
+)ENGINE INNODB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE bd_domestica;
+USE bd_domestica;
+
+DROP DATABASE bd_domestica;
+
+CREATE TABLE perfil(
+	id_perfil INT AUTO_INCREMENT,
+	descricao_perfil VARCHAR(100),
+	PRIMARY KEY(id_perfil)
+)ENGINE INNODB;
+
+CREATE TABLE usuario(
+	id_usuario INT AUTO_INCREMENT,
+	id_perfil INT,
+	data_cadastro DATE NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100),
+	FOREIGN KEY(id_perfil)
+	REFERENCES perfil(id_perfil),
+	PRIMARY KEY(id_usuario)
+)ENGINE INNODB;
+
+CREATE TABLE endereco(
+	id_endereco INT AUTO_INCREMENT,
+	id_usuario INT,
+	cep VARCHAR(10)NOT NULL,
+	rua VARCHAR(100),
+	bairro VARCHAR(50),
+	numero_residencia VARCHAR(10),
+	cidade VARCHAR(50),
+	estado CHAR(2),
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_endereco)
+	
+)ENGINE INNODB;
+
+CREATE TABLE servicos(
+	id_servico INT AUTO_INCREMENT,
+	data_servico DATE NOT NULL,
+	horario_atendimento DATE,
+	servico_feito CHAR(10),
+	preco_servico VARCHAR(50),
+	PRIMARY KEY(id_servico)
+	
+)ENGINE INNODB;
+
+DROP TABLE servicos_clientes;
+
+CREATE TABLE servicos_clientes(
+	id_servico_cliente INT AUTO_INCREMENT,
+	id_servico INT,
+	atendente INT,
+	cliente INT,
+	servico_feito CHAR(10),
+	FOREIGN KEY(id_servico)
+	REFERENCES servicos(id_servico),
+	FOREIGN KEY (atendente)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(cliente)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_servico_cliente)
+)ENGINE INNODB;
+
+CREATE TABLE telefone(
+	id_telefone INT AUTO_INCREMENT,
+	cliente_telefone INT,
+	atendente_telefone INT,
+	tipo VARCHAR(100),
+	numero_telefone VARCHAR(100),
+	FOREIGN KEY(cliente_telefone)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_telefone)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_telefone)
+)ENGINE INNODB;
+
+CREATE TABLE documentos(
+	id_ducumento INT AUTO_INCREMENT,
+	cliente_documento INT,
+	atendente_documento INT,
+	rg VARCHAR(20),
+	cpf VARCHAR(15),
+	FOREIGN KEY(cliente_documento)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_documento)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_ducumento)
+)ENGINE INNODB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE bd_domestica;
+USE bd_domestica;
+
+DROP DATABASE bd_domestica;
+
+CREATE TABLE perfil(
+	id_perfil INT AUTO_INCREMENT,
+	descricao_perfil VARCHAR(100),
+	PRIMARY KEY(id_perfil)
+)ENGINE INNODB;
+
+CREATE TABLE usuario(
+	id_usuario INT AUTO_INCREMENT,
+	id_perfil INT,
+	data_cadastro DATE NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100),
+	FOREIGN KEY(id_perfil)
+	REFERENCES perfil(id_perfil),
+	PRIMARY KEY(id_usuario)
+)ENGINE INNODB;
+
+CREATE TABLE endereco(
+	id_endereco INT AUTO_INCREMENT,
+	id_usuario INT,
+	cep VARCHAR(10)NOT NULL,
+	rua VARCHAR(100),
+	bairro VARCHAR(50),
+	numero_residencia VARCHAR(10),
+	cidade VARCHAR(50),
+	estado CHAR(2),
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_endereco)
+	
+)ENGINE INNODB;
+
+CREATE TABLE servicos(
+	id_servico INT AUTO_INCREMENT,
+	data_servico DATE NOT NULL,
+	horario_atendimento DATE,
+	servico_feito CHAR(10),
+	preco_servico VARCHAR(50),
+	PRIMARY KEY(id_servico)
+	
+)ENGINE INNODB;
+
+DROP TABLE servicos_clientes;
+
+CREATE TABLE servicos_clientes(
+	id_servico_cliente INT AUTO_INCREMENT,
+	id_servico INT,
+	atendente INT,
+	cliente INT,
+	servico_feito CHAR(10),
+	FOREIGN KEY(id_servico)
+	REFERENCES servicos(id_servico),
+	FOREIGN KEY (atendente)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(cliente)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_servico_cliente)
+)ENGINE INNODB;
+
+CREATE TABLE telefone(
+	id_telefone INT AUTO_INCREMENT,
+	cliente_telefone INT,
+	atendente_telefone INT,
+	tipo VARCHAR(100),
+	numero_telefone VARCHAR(100),
+	FOREIGN KEY(cliente_telefone)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_telefone)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_telefone)
+)ENGINE INNODB;
+
+CREATE TABLE documentos(
+	id_ducumento INT AUTO_INCREMENT,
+	cliente_documento INT,
+	atendente_documento INT,
+	rg VARCHAR(20),
+	cpf VARCHAR(15),
+	FOREIGN KEY(cliente_documento)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_documento)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_ducumento)
+)ENGINE INNODB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE bd_domestica;
+USE bd_domestica;
+
+DROP DATABASE bd_domestica;
+
+CREATE TABLE perfil(
+	id_perfil INT AUTO_INCREMENT,
+	descricao_perfil VARCHAR(100),
+	PRIMARY KEY(id_perfil)
+)ENGINE INNODB;
+
+CREATE TABLE usuario(
+	id_usuario INT AUTO_INCREMENT,
+	id_perfil INT,
+	data_cadastro DATE NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100),
+	FOREIGN KEY(id_perfil)
+	REFERENCES perfil(id_perfil),
+	PRIMARY KEY(id_usuario)
+)ENGINE INNODB;
+
+CREATE TABLE endereco(
+	id_endereco INT AUTO_INCREMENT,
+	id_usuario INT,
+	cep VARCHAR(10)NOT NULL,
+	rua VARCHAR(100),
+	bairro VARCHAR(50),
+	numero_residencia VARCHAR(10),
+	cidade VARCHAR(50),
+	estado CHAR(2),
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_endereco)
+	
+)ENGINE INNODB;
+
+CREATE TABLE servicos(
+	id_servico INT AUTO_INCREMENT,
+	data_servico DATE NOT NULL,
+	horario_atendimento DATE,
+	servico_feito CHAR(10),
+	preco_servico VARCHAR(50),
+	PRIMARY KEY(id_servico)
+	
+)ENGINE INNODB;
+
+DROP TABLE servicos_clientes;
+
+CREATE TABLE servicos_clientes(
+	id_servico_cliente INT AUTO_INCREMENT,
+	id_servico INT,
+	atendente INT,
+	cliente INT,
+	servico_feito CHAR(10),
+	FOREIGN KEY(id_servico)
+	REFERENCES servicos(id_servico),
+	FOREIGN KEY (atendente)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(cliente)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_servico_cliente)
+)ENGINE INNODB;
+
+CREATE TABLE telefone(
+	id_telefone INT AUTO_INCREMENT,
+	cliente_telefone INT,
+	atendente_telefone INT,
+	tipo VARCHAR(100),
+	numero_telefone VARCHAR(100),
+	FOREIGN KEY(cliente_telefone)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_telefone)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_telefone)
+)ENGINE INNODB;
+
+CREATE TABLE documentos(
+	id_ducumento INT AUTO_INCREMENT,
+	cliente_documento INT,
+	atendente_documento INT,
+	rg VARCHAR(20),
+	cpf VARCHAR(15),
+	FOREIGN KEY(cliente_documento)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_documento)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_ducumento)
+)ENGINE INNODB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE bd_domestica;
+USE bd_domestica;
+
+DROP DATABASE bd_domestica;
+
+CREATE TABLE perfil(
+	id_perfil INT AUTO_INCREMENT,
+	descricao_perfil VARCHAR(100),
+	PRIMARY KEY(id_perfil)
+)ENGINE INNODB;
+
+CREATE TABLE usuario(
+	id_usuario INT AUTO_INCREMENT,
+	id_perfil INT,
+	data_cadastro DATE NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100),
+	FOREIGN KEY(id_perfil)
+	REFERENCES perfil(id_perfil),
+	PRIMARY KEY(id_usuario)
+)ENGINE INNODB;
+
+CREATE TABLE endereco(
+	id_endereco INT AUTO_INCREMENT,
+	id_usuario INT,
+	cep VARCHAR(10)NOT NULL,
+	rua VARCHAR(100),
+	bairro VARCHAR(50),
+	numero_residencia VARCHAR(10),
+	cidade VARCHAR(50),
+	estado CHAR(2),
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_endereco)
+	
+)ENGINE INNODB;
+
+CREATE TABLE servicos(
+	id_servico INT AUTO_INCREMENT,
+	data_servico DATE NOT NULL,
+	horario_atendimento DATE,
+	servico_feito CHAR(10),
+	preco_servico VARCHAR(50),
+	PRIMARY KEY(id_servico)
+	
+)ENGINE INNODB;
+
+DROP TABLE servicos_clientes;
+
+CREATE TABLE servicos_clientes(
+	id_servico_cliente INT AUTO_INCREMENT,
+	id_servico INT,
+	atendente INT,
+	cliente INT,
+	servico_feito CHAR(10),
+	FOREIGN KEY(id_servico)
+	REFERENCES servicos(id_servico),
+	FOREIGN KEY (atendente)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(cliente)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_servico_cliente)
+)ENGINE INNODB;
+
+CREATE TABLE telefone(
+	id_telefone INT AUTO_INCREMENT,
+	cliente_telefone INT,
+	atendente_telefone INT,
+	tipo VARCHAR(100),
+	numero_telefone VARCHAR(100),
+	FOREIGN KEY(cliente_telefone)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_telefone)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_telefone)
+)ENGINE INNODB;
+
+CREATE TABLE documentos(
+	id_ducumento INT AUTO_INCREMENT,
+	cliente_documento INT,
+	atendente_documento INT,
+	rg VARCHAR(20),
+	cpf VARCHAR(15),
+	FOREIGN KEY(cliente_documento)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_documento)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_ducumento)
+)ENGINE INNODB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE bd_domestica;
+USE bd_domestica;
+
+DROP DATABASE bd_domestica;
+
+CREATE TABLE perfil(
+	id_perfil INT AUTO_INCREMENT,
+	descricao_perfil VARCHAR(100),
+	PRIMARY KEY(id_perfil)
+)ENGINE INNODB;
+
+CREATE TABLE usuario(
+	id_usuario INT AUTO_INCREMENT,
+	id_perfil INT,
+	data_cadastro DATE NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100),
+	FOREIGN KEY(id_perfil)
+	REFERENCES perfil(id_perfil),
+	PRIMARY KEY(id_usuario)
+)ENGINE INNODB;
+
+CREATE TABLE endereco(
+	id_endereco INT AUTO_INCREMENT,
+	id_usuario INT,
+	cep VARCHAR(10)NOT NULL,
+	rua VARCHAR(100),
+	bairro VARCHAR(50),
+	numero_residencia VARCHAR(10),
+	cidade VARCHAR(50),
+	estado CHAR(2),
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_endereco)
+	
+)ENGINE INNODB;
+
+CREATE TABLE servicos(
+	id_servico INT AUTO_INCREMENT,
+	data_servico DATE NOT NULL,
+	horario_atendimento DATE,
+	servico_feito CHAR(10),
+	preco_servico VARCHAR(50),
+	PRIMARY KEY(id_servico)
+	
+)ENGINE INNODB;
+
+DROP TABLE servicos_clientes;
+
+CREATE TABLE servicos_clientes(
+	id_servico_cliente INT AUTO_INCREMENT,
+	id_servico INT,
+	atendente INT,
+	cliente INT,
+	servico_feito CHAR(10),
+	FOREIGN KEY(id_servico)
+	REFERENCES servicos(id_servico),
+	FOREIGN KEY (atendente)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(cliente)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_servico_cliente)
+)ENGINE INNODB;
+
+CREATE TABLE telefone(
+	id_telefone INT AUTO_INCREMENT,
+	cliente_telefone INT,
+	atendente_telefone INT,
+	tipo VARCHAR(100),
+	numero_telefone VARCHAR(100),
+	FOREIGN KEY(cliente_telefone)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_telefone)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_telefone)
+)ENGINE INNODB;
+
+CREATE TABLE documentos(
+	id_ducumento INT AUTO_INCREMENT,
+	cliente_documento INT,
+	atendente_documento INT,
+	rg VARCHAR(20),
+	cpf VARCHAR(15),
+	FOREIGN KEY(cliente_documento)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_documento)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_ducumento)
+)ENGINE INNODB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE bd_domestica;
+USE bd_domestica;
+
+DROP DATABASE bd_domestica;
+
+CREATE TABLE perfil(
+	id_perfil INT AUTO_INCREMENT,
+	descricao_perfil VARCHAR(100),
+	PRIMARY KEY(id_perfil)
+)ENGINE INNODB;
+
+CREATE TABLE usuario(
+	id_usuario INT AUTO_INCREMENT,
+	id_perfil INT,
+	data_cadastro DATE NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100),
+	FOREIGN KEY(id_perfil)
+	REFERENCES perfil(id_perfil),
+	PRIMARY KEY(id_usuario)
+)ENGINE INNODB;
+
+CREATE TABLE endereco(
+	id_endereco INT AUTO_INCREMENT,
+	id_usuario INT,
+	cep VARCHAR(10)NOT NULL,
+	rua VARCHAR(100),
+	bairro VARCHAR(50),
+	numero_residencia VARCHAR(10),
+	cidade VARCHAR(50),
+	estado CHAR(2),
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_endereco)
+	
+)ENGINE INNODB;
+
+CREATE TABLE servicos(
+	id_servico INT AUTO_INCREMENT,
+	data_servico DATE NOT NULL,
+	horario_atendimento DATE,
+	servico_feito CHAR(10),
+	preco_servico VARCHAR(50),
+	PRIMARY KEY(id_servico)
+	
+)ENGINE INNODB;
+
+DROP TABLE servicos_clientes;
+
+CREATE TABLE servicos_clientes(
+	id_servico_cliente INT AUTO_INCREMENT,
+	id_servico INT,
+	atendente INT,
+	cliente INT,
+	servico_feito CHAR(10),
+	FOREIGN KEY(id_servico)
+	REFERENCES servicos(id_servico),
+	FOREIGN KEY (atendente)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(cliente)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_servico_cliente)
+)ENGINE INNODB;
+
+CREATE TABLE telefone(
+	id_telefone INT AUTO_INCREMENT,
+	cliente_telefone INT,
+	atendente_telefone INT,
+	tipo VARCHAR(100),
+	numero_telefone VARCHAR(100),
+	FOREIGN KEY(cliente_telefone)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_telefone)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_telefone)
+)ENGINE INNODB;
+
+CREATE TABLE documentos(
+	id_ducumento INT AUTO_INCREMENT,
+	cliente_documento INT,
+	atendente_documento INT,
+	rg VARCHAR(20),
+	cpf VARCHAR(15),
+	FOREIGN KEY(cliente_documento)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_documento)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_ducumento)
+)ENGINE INNODB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE bd_domestica;
+USE bd_domestica;
+
+DROP DATABASE bd_domestica;
+
+CREATE TABLE perfil(
+	id_perfil INT AUTO_INCREMENT,
+	descricao_perfil VARCHAR(100),
+	PRIMARY KEY(id_perfil)
+)ENGINE INNODB;
+
+CREATE TABLE usuario(
+	id_usuario INT AUTO_INCREMENT,
+	id_perfil INT,
+	data_cadastro DATE NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100),
+	FOREIGN KEY(id_perfil)
+	REFERENCES perfil(id_perfil),
+	PRIMARY KEY(id_usuario)
+)ENGINE INNODB;
+
+CREATE TABLE endereco(
+	id_endereco INT AUTO_INCREMENT,
+	id_usuario INT,
+	cep VARCHAR(10)NOT NULL,
+	rua VARCHAR(100),
+	bairro VARCHAR(50),
+	numero_residencia VARCHAR(10),
+	cidade VARCHAR(50),
+	estado CHAR(2),
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_endereco)
+	
+)ENGINE INNODB;
+
+CREATE TABLE servicos(
+	id_servico INT AUTO_INCREMENT,
+	data_servico DATE NOT NULL,
+	horario_atendimento DATE,
+	servico_feito CHAR(10),
+	preco_servico VARCHAR(50),
+	PRIMARY KEY(id_servico)
+	
+)ENGINE INNODB;
+
+DROP TABLE servicos_clientes;
+
+CREATE TABLE servicos_clientes(
+	id_servico_cliente INT AUTO_INCREMENT,
+	id_servico INT
+	atendente INT,
+	cliente INT,
+	servico_feito CHAR(10),
+	FOREIGN KEY(id_servico)
+	REFERENCES servicos(id_servico),
+	FOREIGN KEY (atendente)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(cliente)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_servico_cliente)
+)ENGINE INNODB;
+
+CREATE TABLE telefone(
+	id_telefone INT AUTO_INCREMENT,
+	cliente_telefone INT,
+	atendente_telefone INT,
+	tipo VARCHAR(100),
+	numero_telefone VARCHAR(100),
+	FOREIGN KEY(cliente_telefone)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_telefone)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_telefone)
+)ENGINE INNODB;
+
+CREATE TABLE documentos(
+	id_ducumento INT AUTO_INCREMENT,
+	cliente_documento INT,
+	atendente_documento INT,
+	rg VARCHAR(20),
+	cpf VARCHAR(15),
+	FOREIGN KEY(cliente_documento)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_documento)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_ducumento)
+)ENGINE INNODB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE bd_domestica;
+USE bd_domestica;
+
+
+CREATE TABLE perfil(
+	id_perfil INT AUTO_INCREMENT,
+	descricao_perfil VARCHAR(100),
+	PRIMARY KEY(id_perfil)
+)ENGINE INNODB;
+
+CREATE TABLE usuario(
+	id_usuario INT AUTO_INCREMENT,
+	id_perfil INT,
+	data_cadastro DATE NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100),
+	FOREIGN KEY(id_perfil)
+	REFERENCES perfil(id_perfil),
+	PRIMARY KEY(id_usuario)
+)ENGINE INNODB;
+
+CREATE TABLE endereco(
+	id_endereco INT AUTO_INCREMENT,
+	id_usuario INT,
+	cep VARCHAR(10)NOT NULL,
+	rua VARCHAR(100),
+	bairro VARCHAR(50),
+	numero_residencia VARCHAR(10),
+	cidade VARCHAR(50),
+	estado CHAR(2),
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_endereco)
+	
+)ENGINE INNODB;
+
+CREATE TABLE servicos(
+	id_servico INT AUTO_INCREMENT,
+	data_servico DATE NOT NULL,
+	horario_atendimento DATE,
+	servico_feito CHAR(10),
+	preco_servico VARCHAR(50),
+	PRIMARY KEY(id_servico)
+	
+)ENGINE INNODB;
+
+
+CREATE TABLE servicos_clientes(
+	id_servico_cliente INT AUTO_INCREMENT,
+	id_servico INT,
+	atendente INT,
+	cliente_atendido INT,
+	servico_feito CHAR(10),
+	FOREIGN KEY(id_servico)
+	REFERENCES servicos(id_servico),
+	FOREIGN KEY (atendente)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(cliente_atendido)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_servico_cliente)
+)ENGINE INNODB;
+
+CREATE TABLE telefone(
+	id_telefone INT AUTO_INCREMENT,
+	cliente_telefone INT,
+	atendente_telefone INT,
+	tipo VARCHAR(100),
+	numero_telefone VARCHAR(100),
+	FOREIGN KEY(cliente_telefone)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_telefone)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_telefone)
+)ENGINE INNODB;
+
+CREATE TABLE documentos(
+	id_ducumento INT AUTO_INCREMENT,
+	cliente_documento INT,
+	atendente_documento INT,
+	rg VARCHAR(20),
+	cpf VARCHAR(15),
+	FOREIGN KEY(cliente_documento)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_documento)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_ducumento)
+)ENGINE INNODB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE bd_domestica;
+USE bd_domestica;
+
+DROP DATABASE bd_domestica;
+
+CREATE TABLE perfil(
+	id_perfil INT AUTO_INCREMENT,
+	descricao_perfil VARCHAR(100),
+	PRIMARY KEY(id_perfil)
+)ENGINE INNODB;
+
+CREATE TABLE usuario(
+	id_usuario INT AUTO_INCREMENT,
+	id_perfil INT,
+	data_cadastro DATE NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100),
+	FOREIGN KEY(id_perfil)
+	REFERENCES perfil(id_perfil),
+	PRIMARY KEY(id_usuario)
+)ENGINE INNODB;
+
+CREATE TABLE endereco(
+	id_endereco INT AUTO_INCREMENT,
+	id_usuario_cliente INT,
+	cep VARCHAR(10)NOT NULL,
+	rua VARCHAR(100),
+	bairro VARCHAR(50),
+	numero_residencia VARCHAR(10),
+	cidade VARCHAR(50),
+	estado CHAR(2),
+	FOREIGN KEY(id_usuario_cliente)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_endereco)
+	
+)ENGINE INNODB;
+
+CREATE TABLE servicos(
+	id_servico INT AUTO_INCREMENT,
+	data_livre DATE,
+	data_servico DATE NOT NULL,
+	horario_atendimento DATE,
+	servico_feito CHAR(10),
+	preco_servico VARCHAR(50),
+	PRIMARY KEY(id_servico)
+	
+)ENGINE INNODB;
+
+
+CREATE TABLE servicos_clientes(
+	id_servico_cliente INT AUTO_INCREMENT,
+	id_servico INT,
+	atendente INT,
+	cliente_atendido INT,
+	data_atendimento DATE,
+	servico_feito CHAR(10),
+	FOREIGN KEY(id_servico)
+	REFERENCES servicos(id_servico),
+	FOREIGN KEY (atendente)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(cliente_atendido)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_servico_cliente)
+)ENGINE INNODB;
+
+CREATE TABLE telefone(
+	id_telefone INT AUTO_INCREMENT,
+	cliente_telefone INT,
+	atendente_telefone INT,
+	tipo VARCHAR(100),
+	numero_telefone VARCHAR(100),
+	FOREIGN KEY(cliente_telefone)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_telefone)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_telefone)
+)ENGINE INNODB;
+
+CREATE TABLE documentos(
+	id_ducumento INT AUTO_INCREMENT,
+	cliente_documento INT,
+	atendente_documento INT,
+	rg VARCHAR(20),
+	cpf VARCHAR(15),
+	FOREIGN KEY(cliente_documento)
+	REFERENCES usuario(id_usuario),
+	FOREIGN KEY(atendente_documento)
+	REFERENCES usuario(id_usuario),
+	PRIMARY KEY(id_ducumento)
+)ENGINE INNODB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+

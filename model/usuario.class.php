@@ -41,12 +41,9 @@
         }
 
         //RELAÇÃO DE COMPOSIÇÃO
-        public function addEndereco($id_endereco, $cep, $rua,
-            $bairro, $numero_residencia,$cidade, $estado)
+        public function addAddress($idAddress, $cep, $publicPlace,$district, $numberResidence, $city, $uf)
         {
-            $this-> enderecos[] = new Address($id_endereco, $cep, $rua,
-            $bairro, $numero_residencia,
-            $cidade, $estado);
+            $this-> address[] = new Address($idAddress, $cep, $publicPlace,$district, $numberResidence, $city, $uf);
         }
         public function getEnderecos(){return $this->enderecos;}
 

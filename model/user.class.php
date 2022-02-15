@@ -1,68 +1,34 @@
 <?php
 
-    require_once "endereco.class.php";
-    require_once "telefone.class.php";
+    require_once "address.class.php";
+    require_once "phone.class.php";
 
-    class Usuario
+    class Users
     {
-        private $id_usuario;
-        private $nome;
+        private $idUser;
+        private $nameClient;
         private $email;
-        private $senha;
-        private $data_cadastro;
+        private $password;
         private $perfil;
-        private $enderecos;
-        private $rg;
-        private $cpf;
-        private $servicos;
-        private $telefones;
+        private $address;
+        private $services;
+        private $phones;
 
-        public function __construct($id_usuario = null,$nome = null, $email = null, $senha = null,
-            $data_cadastro = null, Perfil $perfil,$id_endereco, $cep, $rua,
-            $bairro, $numero_residencia,$cidade, $estado,
-            $rg,$cpf,$id_telefone,$tipo_telefone,
-            $cliente_telefone, $atendente_telefone)
+        public function __construct($idUser = null,$nameClient = null, $email = null, $senha = null,
+            Perfil $perfil, $idAddress,$cep, $publicPlace,$district, $numberResidence,
+            $city,$uf, $idPhone,$telePhoneType,$telephone)
         {
-            $this->id_usuario = $id_usuario;
-            $this-> nome = $nome;
+            $this->idUser = $idUser;
+            $this-> nameClient = $nameClient;
             $this-> email = $email;
-            $this-> senha = $senha;
-            $this-> data_cadastro = $data_cadastro;
+            $this-> password = $password;
             $this-> perfil = $perfil;
-            $this-> enderecos[] = new Endereco($id_endereco, $cep, $rua,
-            $bairro, $numero_residencia,
-            $cidade, $estado);
-            $this->servicos = array();
-            //$this->documentos = new Documentos($id_documento,$rg,$cpf);
-            $this->telefones[] = new Telefones($id_telefone,$tipo_telefone,
-            $cliente_telefone, $atendente_telefone);
+            $this-> address[] = new Address($idAddress,$cep, $publicPlace,$district, $numberResidence,
+                $city,$uf);
+            $this->services = array();
+            $this->phones[] = new Phones($idPhone,$telePhoneType,$telephone);
         }
 
-        public function getId_usuario(){return $this->id_usuario;}
-
-           
-        public function getNome(){ return $this->nome;}
-
-        public function setNome($nome)
-        {
-                $this->nome = $nome;
-        }
-
-        public function getEmail(){return $this->email;}
-
-        public function setEmail($email)
-        {
-                $this->email = $email;
-
-        }
-
-        public function getData_cadastro(){return $this->data_cadastro;}
-
-        public function setData_cadastro($data_cadastro)
-        {
-                $this->data_cadastro = $data_cadastro;
-        }
-        
         //RELAÇÃO DE ASSOCIAÇÃO
         public function getPerfil(){return $this->perfil;}
 
@@ -72,18 +38,17 @@
         }
 
         //RELAÇÃO DE COMPOSIÇÃO
-        public function addEndereco($id_endereco, $cep, $rua,
-            $bairro, $numero_residencia,$cidade, $estado)
+        public function addAdress($idAddress,$cep, $publicPlace,$district, $numberResidence,
+            $city,$uf)
         {
-            $this-> enderecos[] = new Endereco($id_endereco, $cep, $rua,
-            $bairro, $numero_residencia,
-            $cidade, $estado);
+            $this-> address[] = new Address($idAddress,$cep, $publicPlace,$district, $numberResidence,
+                $city,$uf);
         }
-        public function getEnderecos(){return $this->enderecos;}
+        public function getAddress(){return $this->address;}
 
-        public function setEnderecos($enderecos)
+        public function setAddress($address)
         {
-                $this->enderecos = $enderecos;
+                $this->address = $address;
         }
         
         //AGREGAÇÃO USUARIO E SERVIÇOS
@@ -100,17 +65,15 @@
         
 
         //RELAÇÃO DE COMPOSIÇÃO TELEFONES
-        public function adicionarTelefone($id_telefone,$tipo_telefone,
-            $cliente_telefone, $atendente_telefone)
+        public function addPhones($idPhone,$telePhoneType,$telephone)
         {
-            $this-> telefones[] = new Telefones($id_telefone,$tipo_telefone,
-            $cliente_telefone, $atendente_telefone);
+            $this-> phones[] = new Telefones($idPhone,$telePhoneType,$telephone);
         }
-        public function getTelefones(){return $this->telefones;}
+        public function getPhones(){return $this->phones;}
 
-        public function setTelefones($telefones)
+        public function setPhones($phones)
         {
-                $this->telefones = $telefones;
+                $this->phones = $phones;
         }
 
         public function getSenha()

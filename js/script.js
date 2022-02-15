@@ -2,6 +2,7 @@
 
     var $cep = document.querySelector('#cep');
     const $btnMais = document.querySelector('.btnMais');
+
     function getFields(fieldFound)
     {
         for(const field in fieldFound)
@@ -32,16 +33,18 @@
 
         cepIdentify();
     });
-    function createPhone()
+    
+    function cloneInputPhone()
     {
+        const $formContainer = document.querySelector('.formContainer');
         const $phoneNumber = document.querySelector('.phoneNumber');
-        $phoneClone = $phoneNumber.cloneNode(true);
-        $phoneNumber.append($phoneClone);
+        const $phoneClone = $phoneNumber.cloneNode(true);
+        $formContainer.appendChild($phoneClone);
     }
     
     $btnMais.addEventListener('click', event =>
     {
         event.preventDefault();
-        createPhone();
+        cloneInputPhone();
     });
 

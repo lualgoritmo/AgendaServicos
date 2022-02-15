@@ -36,12 +36,19 @@
     
     function cloneInputPhone()
     {
-        const $formContainer = document.querySelector('.formContainer');
-        const $phoneNumber = document.querySelector('.phoneNumber');
-        const $phoneClone = $phoneNumber.cloneNode(true);
-        $formContainer.appendChild($phoneClone);
+        const $form = document.querySelector('form');
+        const $inputOrigin = document.querySelector('.phoneNumber');
+        let newInput;
+        const createInput = document.createElement('input');
+        createInput.placeholder = "Número de Contato";
+        createInput.classList.add('numberContact');
+        createInput.name = `phoneCell`;
+        //var elementoInserido = elementoPai.insertBefore(novoElemento, elementoDeReferencia);
+        newInput = $form.insertBefore(createInput, $inputOrigin.nextSibling);
+        let t = document.querySelector('.numberPho');
+        console.log(t);
     }
-    
+
     $btnMais.addEventListener('click', event =>
     {
         event.preventDefault();

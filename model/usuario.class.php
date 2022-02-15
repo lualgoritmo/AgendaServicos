@@ -72,13 +72,11 @@
             $this-> telefones[] = new Telefones($id_telefone,$tipo_telefone,
             $cliente_telefone, $atendente_telefone);
         }
-        public function getTelefones(){return $this->telefones;}
+        public function getPhones(){return $this->telefones;}
 
-        public function setTelefones($telefones)
+        public function setPhones($telefones)
         {
                 $this->telefones = $telefones;
-        }
-
-       
+        }   
     }
 ?>

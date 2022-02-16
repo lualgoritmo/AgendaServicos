@@ -41,7 +41,7 @@
         let newInput;
         const createInput = document.createElement('input');
         createInput.placeholder = "Número de Contato";
-        createInput.className = `numberContact inputPhone`;
+        createInput.className = `numberContact inputPhone inputFormat`;
         createInput.name = `phoneCell`;
         //var elementoInserido = elementoPai.insertBefore(novoElemento, elementoDeReferencia);
         console.log(createInput);

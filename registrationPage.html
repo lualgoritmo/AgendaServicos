@@ -4,27 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Registro do Usuário</title>
+    <link rel="stylesheet" type="text/css" href="css/formClient.css" />
+    <title>Página de Registro de Clientes</title>
 </head>
 <body>
-    <form method="POST" class="formContainer">
-        <input type="text" name="user" placeholder="Nome do Cliente"/><br/>
-        <input type="text" name="email" placeholder="E-mail"/><br/>
-        <input type="text" name="phone" class="phoneNumber"placeholder="Número de Telefone" />
-        <button class="btnMost">+</button><button class="btnMinus">-</button><br/>
-        <select name="sex" id="">
-            <option value="">Sexo</option>
-            <option value="Femininos">Feminino</option>
-            <option value="Masculino">Masculino</option>
-        </select><br/>
-        <input type="text" id="cep" placeholder="Número do Cep"/><br/>
-        <input type="text" name="rua" id="logradouro" placeholder="Nome da Rua"/><br/>
-        <input type="text" id="bairro"/ placeholder="Nome do Bairro"><br/>
-        <input type="text" id="localidade" placeholder="Nome da Cidade"/><br/>
-        <input type="text" id="complemento" placeholder="Complemento"/><br/>
-        <input type="text" id="complemento" placeholder="Número da Residência"/><br/>
-        <input type="text" id="uf" placeholder="Estado"/>
-    </form>
+    <div class="containerForm">
+        <form method="POST" class="formContainer">
+            <input type="text"class="inputFormat" name="user" placeholder="Nome do Cliente"/><br/>
+            <input type="text" class="inputFormat" name="email" placeholder="E-mail"/><br/>
+            <input type="text" class="inputFormat phoneNumber" name="phone" class="phoneNumber"placeholder="Número de Telefone" />
+            <button class="btnMost">Add</button><button class="btnMinus">Rem</button><br/>
+            <select name="sex" id="">
+                <option value="">Sexo</option>
+                <option value="Femininos">Feminino</option>
+                <option value="Masculino">Masculino</option>
+            </select><br/>
+            <input type="text" class="inputFormat" id="cep" placeholder="Número do Cep"/><br/>
+            <input type="text" class="inputFormat" name="rua" id="logradouro" placeholder="Nome da Rua"/><br/>
+            <input type="text" class="inputFormat" id="bairro"/ placeholder="Nome do Bairro"><br/>
+            <input type="text" class="inputFormat" id="localidade" placeholder="Nome da Cidade"/><br/>
+            <input type="text" class="inputFormat" id="complemento" placeholder="Complemento"/><br/>
+            <input type="text" class="inputFormat" id="complemento" placeholder="Número da Residência"/><br/>
+            <input type="text" class="inputFormat" id="uf" placeholder="Estado"/>
+        </form>
+    </div>
+    
     <script src="js/script.js"></script>
 </body>
 </html>

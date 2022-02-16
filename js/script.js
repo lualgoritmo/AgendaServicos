@@ -34,18 +34,16 @@
 
         cepIdentify();
     });
-    
-    function cloneInputPhone()
+    function createInputPhone()
     {
         const $personalData = document.querySelector('#personalData');
-        const $inputOrigin = document.querySelector('.phoneNumber');
-        let newInput;
-        const createInput = document.createElement('input');
-        createInput.placeholder = "Número de Contato";
-        createInput.className = `numberContact inputPhone inputFormat`;
-        createInput.name = `phone`;
-        //var elementoInserido = elementoPai.insertBefore(novoElemento, elementoDeReferencia);
-        return newInput = $personalData.insertBefore(createInput, $inputOrigin.nextSibling);
+        const $selectPhone = document.querySelector('#selectPhone');
+        let newInputPhone;
+        let createInputPhone = document.createElement('input');
+        createInputPhone.placeholder = "Número de Contato";
+        createInputPhone.className = `numberContact inputPhone inputFormat`;
+        createInputPhone.name = `phone`;
+        return newInputPhone = $personalData.insertBefore(createInputPhone,$selectPhone.nextSibling);
     }
     
     function removeBtn()
@@ -58,7 +56,8 @@
     $btnMost.addEventListener('click', event =>
     {
         event.preventDefault();
-        cloneInputPhone();
+        //cloneInputPhone();
+        createInputPhone();
     });
 
     $btnMinus.addEventListener('click', event =>

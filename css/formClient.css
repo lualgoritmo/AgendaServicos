@@ -14,8 +14,7 @@ h1
     padding: 10px;
     background-color: #FFF;
     flex-wrap: wrap;
-    border: 1px solid red;
-    justify-content: space-around;
+    justify-content:space-around;
 }
 .inputFormat
 {
@@ -23,13 +22,13 @@ h1
     outline: none;
     border-bottom: 1px solid #000;
     margin: 6px;
-    width: 450px;
+    width: 21em;
 }
 
 #personalData, #address, #services
 {
     padding: 10px;
-    border: 0;
+    max-width: 100%;
 }
 
 /*BOTÕES PARA CRIAR ELMEENTOS E REMOVER*/
@@ -71,6 +70,4 @@ option
 .break
 {
     width: 100%;
-    border: 1xp solid red;
-    background-color: green;
 }

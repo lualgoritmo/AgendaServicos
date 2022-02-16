@@ -8,43 +8,28 @@ h1
 {
     text-align: center;
 }
-
 .formContainer
 {
     display: flex;
-    width: 100%;
     padding: 10px;
     background-color: #FFF;
-    height: auto;
+    flex-wrap: wrap;
+    border: 1px solid red;
+    justify-content: space-around;
 }
 .inputFormat
 {
     border: 0;
     outline: none;
     border-bottom: 1px solid #000;
-    margin: 6px 6px;
-    width: 90%;
+    margin: 6px;
+    width: 450px;
 }
 
-#personalData, #address
+#personalData, #address, #services
 {
-    width: 100%;
     padding: 10px;
     border: 0;
-}
-#personalData
-{
-    border-left: 1px solid #000;
-    border-bottom: 1px solid #000;
-}
-#address
-{
-    border-top: 1px solid #000;
-    border-right: 1px solid #000;
-}
-#services
-{
-   width: 100%;
 }
 
 /*BOTÕES PARA CRIAR ELMEENTOS E REMOVER*/
@@ -86,4 +71,6 @@ option
 .break
 {
     width: 100%;
+    border: 1xp solid red;
+    background-color: green;
 }

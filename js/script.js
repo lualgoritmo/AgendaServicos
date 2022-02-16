@@ -44,7 +44,8 @@
         createInput.className = `numberContact inputPhone`;
         createInput.name = `phoneCell`;
         //var elementoInserido = elementoPai.insertBefore(novoElemento, elementoDeReferencia);
-        newInput = $form.insertBefore(createInput, $inputOrigin.nextSibling);
+        console.log(createInput);
+        return newInput = $form.insertBefore(createInput, $inputOrigin.nextSibling);
     }
     
     function removeBtn()

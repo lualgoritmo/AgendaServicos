@@ -1,25 +1,53 @@
 
-.containerForm
+body
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #DDD;
+}
+h1
+{
+    text-align: center;
 }
 
-::placeholder
+.formContainer
 {
-    font-size: 1.1em;
-    font-weight: 300;
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    background-color: #FFF;
+    height: auto;
 }
 .inputFormat
 {
     border: 0;
     outline: none;
     border-bottom: 1px solid #000;
-    margin: 6px;
-    width: 100%;
+    margin: 6px 6px;
+    width: 90%;
 }
+
+#personalData, #address
+{
+    width: 100%;
+    padding: 10px;
+    border: 0;
+}
+#personalData
+{
+    border-left: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+#address
+{
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+}
+#services
+{
+   width: 100%;
+}
+
+/*BOTÕES PARA CRIAR ELMEENTOS E REMOVER*/
 .btnMost, .btnMinus
 {
     padding: 5px;
@@ -29,14 +57,33 @@
     color: #FFF;
     background-color: green;
     text-align: center;
+    width: 20%;
 }
 .btnMinus
 {
     background-color: #FF0000;
 }
+
+#genero
+{
+    background-color: #EEE;
+    padding: 4px;
+    font-size: 1em;
+    border-radius: 10px;
+}
+option
+{
+    border-bottom: 1px solid #000;
+}
+/*CLASSE DOS INPUTS CRIADOS*/
 .inputPhone
 {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
+}
+/*BREAK PARA QUEBRA DE LINHA*/
+.break
+{
+    width: 100%;
 }

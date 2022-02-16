@@ -3,6 +3,7 @@
     var $cep = document.querySelector('#cep');
     const $btnMost = document.querySelector('.btnMost');
     const $btnMinus = document.querySelector('.btnMinus');
+
     function getFields(fieldFound)
     {
         for(const field in fieldFound)
@@ -36,24 +37,24 @@
     
     function cloneInputPhone()
     {
-        const $form = document.querySelector('form');
+        const $personalData = document.querySelector('#personalData');
         const $inputOrigin = document.querySelector('.phoneNumber');
         let newInput;
         const createInput = document.createElement('input');
         createInput.placeholder = "Número de Contato";
         createInput.className = `numberContact inputPhone inputFormat`;
-        createInput.name = `phoneCell`;
+        createInput.name = `phone`;
         //var elementoInserido = elementoPai.insertBefore(novoElemento, elementoDeReferencia);
-        console.log(createInput);
-        return newInput = $form.insertBefore(createInput, $inputOrigin.nextSibling);
+        return newInput = $personalData.insertBefore(createInput, $inputOrigin.nextSibling);
     }
     
     function removeBtn()
     {
-        $btnRemove = document.querySelector('.btnMinus');
+        let $btnRemove = document.querySelector('.btnMinus');
         let btn = document.querySelector('.numberContact');
         $btnRemove ? btn.remove() : btn;
     }
+    
     $btnMost.addEventListener('click', event =>
     {
         event.preventDefault();

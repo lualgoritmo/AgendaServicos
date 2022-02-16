@@ -8,24 +8,39 @@
     <title>Página de Registro de Clientes</title>
 </head>
 <body>
+    <h1>Cadastro de Clientes</h1>
     <div class="containerForm">
         <form method="POST" class="formContainer">
-            <input type="text"class="inputFormat" name="user" placeholder="Nome do Cliente"/><br/>
-            <input type="text" class="inputFormat" name="email" placeholder="E-mail"/><br/>
-            <input type="text" class="inputFormat phoneNumber" name="phone" class="phoneNumber"placeholder="Número de Telefone" />
-            <button class="btnMost">Add</button><button class="btnMinus">Rem</button><br/>
-            <select name="sex" id="">
-                <option value="">Sexo</option>
-                <option value="Femininos">Feminino</option>
-                <option value="Masculino">Masculino</option>
-            </select><br/>
-            <input type="text" class="inputFormat" id="cep" placeholder="Número do Cep"/><br/>
-            <input type="text" class="inputFormat" name="rua" id="logradouro" placeholder="Nome da Rua"/><br/>
-            <input type="text" class="inputFormat" id="bairro"/ placeholder="Nome do Bairro"><br/>
-            <input type="text" class="inputFormat" id="localidade" placeholder="Nome da Cidade"/><br/>
-            <input type="text" class="inputFormat" id="complemento" placeholder="Complemento"/><br/>
-            <input type="text" class="inputFormat" id="complemento" placeholder="Número da Residência"/><br/>
-            <input type="text" class="inputFormat" id="uf" placeholder="Estado"/>
+            <fieldset id="personalData">
+                <legend>Dados Pessoais</legend>
+                <input type="text"class="inputFormat" name="user" placeholder="Nome do Cliente"/><br/>
+                <input type="text" class="inputFormat" name="email" placeholder="E-mail"/><br/>
+                <input type="text" class="inputFormat phoneNumber" name="phone" class="phoneNumber"placeholder="Número de Telefone" />
+                <div class="break"></div>
+                <button class="btnMost">Adicionar</button>
+                <button class="btnMinus">Remover</button><br/>
+                <select name="sex" id="genero">
+                    <option>Sexo</option>
+                    <option value="Femininos">Feminino</option>
+                    <option value="Masculino">Masculino</option>
+                </select><br/>
+            </fieldset>
+            <fieldset id="address">
+                <legend>Endereço</legend>
+                <input type="text" class="inputFormat" id="cep" placeholder="Número do Cep"/><br/>
+                <input type="text" class="inputFormat" name="rua" id="logradouro" placeholder="Nome da Rua"/><br/>
+                <input type="text" class="inputFormat" id="bairro"/ placeholder="Nome do Bairro"><br/>
+                <input type="text" class="inputFormat" id="localidade" placeholder="Nome da Cidade"/><br/>
+                <input type="text" class="inputFormat" id="complemento" placeholder="Complemento"/><br/>
+                <input type="text" class="inputFormat" id="complemento" placeholder="Número da Residência"/><br/>
+                <input type="text" class="inputFormat" id="uf" placeholder="Estado"/>
+            </fieldset>
+            <!--<fieldset id="services">
+                <legend>Serviços</legend>
+                <input type="datetime-local"class="inputFormat" name="user" placeholder="Nome do Cliente"/><br/>
+                <input type="text" class="inputFormat" name="email" placeholder="E-mail"/><br/>
+                <input type="text" class="inputFormat phoneNumber" name="phone" class="phoneNumber"placeholder="Número de Telefone" />
+            </fieldset>-->
         </form>
     </div>
     

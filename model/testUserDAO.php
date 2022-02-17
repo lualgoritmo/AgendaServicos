@@ -1,10 +1,10 @@
 <?php
 
-    class UsuarioDAO extends Conexao
+    class userDAO extends Conexao
     {
         public function __construct()
         {
-                parent:: __construct();
+            parent:: __construct();
         }
 
         function fazerLogin($email, $senha)

@@ -64,13 +64,16 @@ CREATE TABLE address(
 CREATE TABLE services(
 	id_service INT AUTO_INCREMENT,
 	id_user INT,
+	id_client INT,
 	nameF VARCHAR(100),
-	data_servico DATETIME NOT NULL,
+	service_date DATETIME NOT NULL,
 	cleaning_time DATE,
 	service_done CHAR(10),
 	price_service VARCHAR(50),
-	FOREIGN KEY(id_user)
+	FOREIGN KEY(id_user)//COLOCAR O ID_CLIENTE
 	REFERENCES users(id_user),
+	FOREIGN KEY(id_client)//COLOCAR ID_CLIENT NO BANCO E TABELA
+	REFERENCES clients(id_client),
 	PRIMARY KEY(id_service)
 )ENGINE INNODB;
 

@@ -9,20 +9,20 @@
         private $nameClient;
         private $email;
         private $password;
-        private $perfil;
+        private $profile;
         private $address;
         private $services;
         private $phones;
 
         public function __construct($idUser = null,$nameClient = null, $email = null, $senha = null,
-            Perfil $perfil, $idAddress,$cep, $publicPlace,$district, $numberResidence,
+            Profile $profile, $idAddress,$cep, $publicPlace,$district, $numberResidence,
             $city,$uf, $idPhone,$telePhoneType,$telephone)
         {
             $this->idUser = $idUser;
             $this-> nameClient = $nameClient;
             $this-> email = $email;
             $this-> password = $password;
-            $this-> perfil = $perfil;
+            $this-> profile = $profile;
             $this-> address[] = new Address($idAddress,$cep, $publicPlace,$district, $numberResidence,
                 $city,$uf);
             $this->services = array();
@@ -30,11 +30,11 @@
         }
 
         //RELAÇÃO DE ASSOCIAÇÃO
-        public function getPerfil(){return $this->perfil;}
+        public function getProfile(){return $this->profile;}
 
-        public function setPerfil(Perfil $perfil)
+        public function setProfile(Profile $profile)
         {
-            $this->perfil = $perfil;
+            $this->profile = $profile;
         }
 
         //RELAÇÃO DE COMPOSIÇÃO

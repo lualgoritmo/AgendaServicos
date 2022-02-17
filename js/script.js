@@ -37,13 +37,13 @@
     function createInputPhone()
     {
         const $personalData = document.querySelector('#personalData');
-        const $selectPhone = document.querySelector('#selectPhone');
+        const $inputPhone = document.querySelector('.inputPhone');
         let newInputPhone;
         let createInputPhone = document.createElement('input');
-        createInputPhone.placeholder = "Número de Contato";
-        createInputPhone.className = `numberContact inputPhone inputFormat`;
+        createInputPhone.placeholder = "Outro Telefone";
+        createInputPhone.className = `numberContact inputPhone inputFormat widthInputPhone`;
         createInputPhone.name = `phone`;
-        return newInputPhone = $personalData.insertBefore(createInputPhone,$selectPhone.nextSibling);
+        return newInputPhone = $personalData.insertBefore(createInputPhone,$inputPhone.nextSibling);
     }
     
     function removeBtn()
@@ -56,7 +56,6 @@
     $btnMost.addEventListener('click', event =>
     {
         event.preventDefault();
-        //cloneInputPhone();
         createInputPhone();
     });
 

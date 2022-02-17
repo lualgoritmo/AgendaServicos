@@ -13,37 +13,35 @@
         <form method="POST" class="formContainer">
             <fieldset id="personalData">
                 <legend>Dados Pessoais</legend>
-                <input type="text"class="inputFormat" name="user" placeholder="Nome do Cliente"/><br/>
-                <input type="text" class="inputFormat" name="email" placeholder="E-mail"/><br/>
-                <select name="phone" id="selectPhone">
-                    
-                </select>
-                <div class="break"></div>
-                <button class="btnMost">Adicionar</button>
-                <button class="btnMinus">Remover</button><br/>
+                <input type="text"class="inputFormat" name="user" placeholder="Nome"/>
+                <input type="text" class="inputFormat" name="email" placeholder="E-mail"/>
+                <input type="text" class="inputFormat inputPhone widthInputPhone" name="phone" placeholder="Telefone"/>
+                <label>+ Telefones</label><br/>
+                <button class="btnMost">+</button>
+                <button class="btnMinus">-</button><br>
                 <select name="sex" id="genero">
                     <option>Sexo</option>
-                    <option value="Femininos">Feminino</option>
+                    <option value="Feminino">Feminino</option>
                     <option value="Masculino">Masculino</option>
                 </select><br/>
             </fieldset>
             <fieldset id="address">
                 <legend>Endereço</legend>
-                <input type="text" class="inputFormat" id="cep" placeholder="Número do Cep"/><br/>
-                <input type="text" class="inputFormat" name="rua" id="logradouro" placeholder="Nome da Rua"/><br/>
-                <input type="text" class="inputFormat" id="bairro"/ placeholder="Nome do Bairro"><br/>
-                <input type="text" class="inputFormat" id="localidade" placeholder="Nome da Cidade"/><br/>
+                <input type="text" class="inputFormat" id="cep" placeholder="Cep"/><br/>
+                <input type="text" class="inputFormat" name="rua" id="logradouro" placeholder="Logradouro"/><br/>
+                <input type="text" class="inputFormat" id="bairro"/ placeholder="Bairro"><br/>
+                <input type="text" class="inputFormat" id="localidade" placeholder="Cidade"/><br/>
                 <input type="text" class="inputFormat" id="complemento" placeholder="Complemento"/><br/>
-                <input type="text" class="inputFormat" id="complemento" placeholder="Número da Residência"/><br/>
+                <input type="text" class="inputFormat" id="complemento" placeholder="Número"/><br/>
                 <input type="text" class="inputFormat" id="uf" placeholder="Estado"/>
             </fieldset>
             <fieldset id="services">
-                <legend>Serviços</legend>
-                <input type="datetime-local"class="inputFormat" name="user" placeholder="Nome do Cliente"/><br/>
-                <input type="text" class="inputFormat" name="email" placeholder="E-mail"/><br/>
-                <input type="text" class="inputFormat phoneNumber" name="phone" class="phoneNumber"placeholder="Número de Telefone" />
+                <legend>Agendar Serviços</legend>
+                <label>Data de Serviço</label><br/>
+                <input type="datetime-local"class="inputFormat inputWidth" name="user"/><br/>
+                <input type="text" class="inputFormat" name="email" placeholder="Colaborador"/><br/>
+                <input type="text" class="inputFormat phoneNumber inputWidth" name="phone" placeholder="Valor" />
             </fieldset>
-            <div class="break"></div>
         </form>
     </div>
     

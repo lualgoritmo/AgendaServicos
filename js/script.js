@@ -36,18 +36,18 @@
     });
     function createInputPhone()
     {
-        const $personalData = document.querySelector('#personalData');
+        let $personalData = document.querySelector('#personalData');
         const $inputPhone = document.querySelector('.inputPhone');
-        let newInputPhone;
         let createInputPhone = document.createElement('input');
-        createInputPhone.placeholder = "Outro Telefone com DDD";
+        createInputPhone.type = `text`;
+        createInputPhone.id = `phone`;
         createInputPhone.className = `numberContact inputPhone inputFormat widthInputPhone`;
         createInputPhone.name = `phone`;
-        createInputPhone.id = `phone`;
+        createInputPhone.placeholder = "Outro Telefone com DDD";
         createInputPhone.maxLength = `15`;
-        return newInputPhone = $personalData.insertBefore(createInputPhone,$inputPhone.nextSibling);
+        return $personalData.insertBefore(createInputPhone,$inputPhone.nextSibling);
     }
-    
+
     function removeBtn()
     {
         let $btnRemove = document.querySelector('.btnMinus');
@@ -91,5 +91,4 @@ window.onload = function(){
 	id('phone').onkeyup = function(){
 		mascara(this, mtel);
 	}
-    console.log(id('phone'));
 }

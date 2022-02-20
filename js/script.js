@@ -40,9 +40,11 @@
         const $inputPhone = document.querySelector('.inputPhone');
         let newInputPhone;
         let createInputPhone = document.createElement('input');
-        createInputPhone.placeholder = "Outro Telefone";
+        createInputPhone.placeholder = "Outro Telefone com DDD";
         createInputPhone.className = `numberContact inputPhone inputFormat widthInputPhone`;
         createInputPhone.name = `phone`;
+        createInputPhone.id = `phone`;
+        createInputPhone.maxLength = `15`;
         return newInputPhone = $personalData.insertBefore(createInputPhone,$inputPhone.nextSibling);
     }
     
@@ -64,3 +66,30 @@
         event.preventDefault();
         removeBtn();
     });
+
+    //FUNÇÃO DE FORMATAÇÃO DE TELEFONE
+    /* Máscaras ER */
+/* Máscaras ER */
+function mascara(o,f){
+    v_obj=o
+    v_fun=f
+    setTimeout("execmascara()",1)
+}
+function execmascara(){
+    v_obj.value=v_fun(v_obj.value)
+}
+function mtel(v){
+    v=v.replace(/\D/g,""); //Remove tudo o que não é dígito
+    v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    v=v.replace(/(\d)(\d{4})$/,"$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+    return v;
+}
+function id(el){
+	return document.getElementById(el);
+}
+window.onload = function(){
+	id('phone').onkeyup = function(){
+		mascara(this, mtel);
+	}
+    console.log(id('phone'));
+}
